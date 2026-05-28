@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,84 +8,160 @@
 <title>Apocalypse Survivor Scan</title>
 
 <style>
-    body {
-        background-color: black;
-        color: #00ff66;
-        font-family: monospace;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
 
-    .terminal {
-        border: 3px solid #00ff66;
-        padding: 30px;
-        width: 90%;
-        max-width: 500px;
-        box-shadow: 0 0 20px #00ff66;
-        background-color: rgba(0,0,0,0.95);
-    }
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #ffe600;
+    font-family: Impact, Arial Black, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-    h1 {
-        text-align: center;
-        margin-top: 0;
-        color: #00ff66;
-    }
+.container {
+    width: 92%;
+    max-width: 520px;
+    background: #050505;
+    border: 6px solid #ffe600;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow:
+        0 0 25px #ffe600,
+        inset 0 0 20px rgba(255,230,0,0.15);
+}
 
-    .line {
-        margin: 12px 0;
-        font-size: 1.1em;
-    }
+.header {
+    text-align: center;
+    font-size: 3rem;
+    line-height: 0.95;
+    color: #ffe600;
+    text-shadow: 0 0 10px #ffe600;
+    margin-bottom: 25px;
+}
 
-    .warning {
-        color: #ff4444;
-        margin-top: 20px;
-        font-weight: bold;
-    }
+.biohazard {
+    font-size: 2rem;
+}
 
-    button {
-        margin-top: 25px;
-        width: 100%;
-        padding: 12px;
-        background: #00ff66;
-        border: none;
-        font-size: 1em;
-        font-weight: bold;
-        cursor: pointer;
-    }
+.scanBox {
+    border: 3px solid #444;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    padding: 14px;
+    background: #0c0c0c;
+}
 
-    button:hover {
-        background: #66ff99;
-    }
+.label {
+    color: #ffe600;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.value {
+    color: #ff3131;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.05;
+}
+
+.recommendation {
+    background: #ff1e1e;
+    color: white;
+    text-align: center;
+    border-radius: 14px;
+    padding: 18px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 0 15px red;
+}
+
+.button {
+    width: 100%;
+    border: none;
+    border-radius: 14px;
+    padding: 22px;
+    background: #ffe600;
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.button:hover {
+    transform: scale(1.03);
+    background: #fff066;
+}
+
+.footer {
+    margin-top: 18px;
+    text-align: center;
+    color: #777;
+    font-size: 0.9rem;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="terminal">
-    <h1>☣ APOCALYPSE SURVIVOR SCAN ☣</h1>
+<div class="container">
 
-    <div class="line" id="status"></div>
-    <div class="line" id="odds"></div>
-    <div class="line" id="class"></div>
-    <div class="line" id="effect"></div>
+    <div class="header">
+        <span class="biohazard">☣</span><br>
+        APOCALYPSE<br>
+        SURVIVOR SCAN<br>
+        <span class="biohazard">☣</span>
+    </div>
 
-    <div class="warning" id="recommendation"></div>
+    <div class="scanBox">
+        <div class="label">STATUS:</div>
+        <div class="value" id="status"></div>
+    </div>
 
-    <button onclick="location.reload()">
+    <div class="scanBox">
+        <div class="label">SURVIVAL ODDS:</div>
+        <div class="value" id="odds"></div>
+    </div>
+
+    <div class="scanBox">
+        <div class="label">CLASS:</div>
+        <div class="value" id="class"></div>
+    </div>
+
+    <div class="scanBox">
+        <div class="label">SIDE EFFECT:</div>
+        <div class="value" id="effect"></div>
+    </div>
+
+    <div class="recommendation">
+        <div>RECOMMENDATION:</div>
+        <div id="recommendationText"></div>
+    </div>
+
+    <button class="button" onclick="location.reload()">
         RUN NEW SCAN
     </button>
+
+    <div class="footer">
+        QUARANTINE RESPONSE DIVISION
+    </div>
+
 </div>
 
 <script>
+
 const statuses = [
-    "CLEARED",
-    "CONTAMINATION PROBABLE",
     "HIGHLY INFECTIOUS",
-    "CONTAMINATED",
-    "SUBJECT CORRUPTED"
+    "CONTAMINATION PROBABLE",
+    "BASS-CONTAMINATED",
+    "SUBJECT ESCAPED",
+    "CLEARED FOR PIT ENTRY"
 ];
 
 const classes = [
@@ -93,24 +170,27 @@ const classes = [
     "Wasteland Medic",
     "Bass Cultist",
     "Hydration Technician",
-    "Speaker Climber"
+    "Speaker Climber",
+    "Glowstick Smuggler"
 ];
 
 const effects = [
-    "Excessive headbanging detected",
-    "Sleep deprivation critical",
-    "High bass exposure",
     "Uncontrolled dancing",
-    "Broken neck",
-    "Aggressive bass face"
+    "Excessive headbanging",
+    "Sleep deprivation critical",
+    "Glowstick addiction",
+    "Aggressive wook behavior",
+    "High bass exposure",
+    "Lost in the sauce"
 ];
 
 const recommendations = [
+    "AVOID MOSH ZONES",
     "HYDRATE IMMEDIATELY",
     "RETURN TO THE PIT",
-    "AVOID MOSH ZONES",
     "REPORT TO THE RAIL",
-    "SEEK EMOTIONAL SUPPORT RAIL"
+    "SEEK EMOTIONAL SUPPORT WOOK",
+    "DO NOT TRUST THE TECHNO STAGE"
 ];
 
 function randomItem(array) {
@@ -118,20 +198,22 @@ function randomItem(array) {
 }
 
 document.getElementById("status").innerHTML =
-    "STATUS: " + randomItem(statuses);
+    randomItem(statuses);
 
 document.getElementById("odds").innerHTML =
-    "SURVIVAL ODDS: " + Math.floor(Math.random() * 101) + "%";
+    Math.floor(Math.random() * 101) + "%";
 
 document.getElementById("class").innerHTML =
-    "CLASS: " + randomItem(classes);
+    randomItem(classes);
 
 document.getElementById("effect").innerHTML =
-    "SIDE EFFECT: " + randomItem(effects);
+    randomItem(effects);
 
-document.getElementById("recommendation").innerHTML =
-    "RECOMMENDATION: " + randomItem(recommendations);
+document.getElementById("recommendationText").innerHTML =
+    randomItem(recommendations);
+
 </script>
 
 </body>
 </html>
+```
