@@ -1,11 +1,137 @@
-const odds = Math.floor(Math.random() * 101);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Apocalypse Survivor Scan</title>
+
+<style>
+    body {
+        background-color: black;
+        color: #00ff66;
+        font-family: monospace;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .terminal {
+        border: 3px solid #00ff66;
+        padding: 30px;
+        width: 90%;
+        max-width: 500px;
+        box-shadow: 0 0 20px #00ff66;
+        background-color: rgba(0,0,0,0.95);
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 0;
+        color: #00ff66;
+    }
+
+    .line {
+        margin: 12px 0;
+        font-size: 1.1em;
+    }
+
+    .warning {
+        color: #ff4444;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    button {
+        margin-top: 25px;
+        width: 100%;
+        padding: 12px;
+        background: #00ff66;
+        border: none;
+        font-size: 1em;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #66ff99;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="terminal">
+    <h1>☣ APOCALYPSE SURVIVOR SCAN ☣</h1>
+
+    <div class="line" id="status"></div>
+    <div class="line" id="odds"></div>
+    <div class="line" id="class"></div>
+    <div class="line" id="effect"></div>
+
+    <div class="warning" id="recommendation"></div>
+
+    <button onclick="location.reload()">
+        RUN NEW SCAN
+    </button>
+</div>
+
+<script>
 const statuses = [
-  "CLEARED",
-  "CONTAMINATION PROBABLE",
-  "HIGHLY INFECTIOUS",
-  "BASS-CONTAMINATED",
-  "SUBJECT ESCAPED"
+    "CLEARED",
+    "CONTAMINATION PROBABLE",
+    "HIGHLY INFECTIOUS",
+    "BASS-CONTAMINATED",
+    "SUBJECT ESCAPED"
 ];
 
-const status = statuses[Math.floor(Math.random() * statuses.length)];
+const classes = [
+    "Loot Goblin",
+    "Rail Rider",
+    "Wasteland Medic",
+    "Bass Cultist",
+    "Hydration Technician",
+    "Speaker Climber"
+];
+
+const effects = [
+    "Excessive headbanging detected",
+    "Sleep deprivation critical",
+    "High bass exposure",
+    "Uncontrolled dancing",
+    "Glowstick addiction",
+    "Aggressive wook behavior"
+];
+
+const recommendations = [
+    "HYDRATE IMMEDIATELY",
+    "RETURN TO THE PIT",
+    "AVOID MOSH ZONES",
+    "REPORT TO THE RAIL",
+    "SEEK EMOTIONAL SUPPORT WOOK"
+];
+
+function randomItem(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
+
+document.getElementById("status").innerHTML =
+    "STATUS: " + randomItem(statuses);
+
+document.getElementById("odds").innerHTML =
+    "SURVIVAL ODDS: " + Math.floor(Math.random() * 101) + "%";
+
+document.getElementById("class").innerHTML =
+    "CLASS: " + randomItem(classes);
+
+document.getElementById("effect").innerHTML =
+    "SIDE EFFECT: " + randomItem(effects);
+
+document.getElementById("recommendation").innerHTML =
+    "RECOMMENDATION: " + randomItem(recommendations);
+</script>
+
+</body>
+</html>
