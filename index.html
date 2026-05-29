@@ -23,14 +23,14 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding: 14px;
+      padding: 10px;
       overflow-x: hidden;
     }
 
     .container {
       width: 100%;
       max-width: 560px;
-      min-height: 94vh;
+      min-height: auto;
       border: 3px solid #9dff00;
       border-radius: 26px;
       background:
@@ -39,7 +39,7 @@
       box-shadow:
         0 0 28px rgba(157, 255, 0, 0.35),
         inset 0 0 24px rgba(157, 255, 0, 0.08);
-      padding: 20px;
+      padding: 16px;
       position: relative;
       overflow: hidden;
     }
@@ -97,7 +97,6 @@
     .screen {
       position: relative;
       z-index: 2;
-      min-height: 88vh;
     }
 
     .hidden {
@@ -108,7 +107,7 @@
       margin: 0;
       text-align: center;
       color: #9dff00;
-      font-size: clamp(3.4rem, 14vw, 5.4rem);
+      font-size: clamp(3.1rem, 13vw, 5.1rem);
       line-height: 0.85;
       letter-spacing: 1px;
       text-shadow:
@@ -134,8 +133,8 @@
       color: #f4ffd5;
       font-family: Arial, sans-serif;
       font-weight: 900;
-      font-size: clamp(1.55rem, 6vw, 2.2rem);
-      margin: 18px 0 22px;
+      font-size: clamp(1.4rem, 5.4vw, 2rem);
+      margin: 14px 0 16px;
       line-height: 1.15;
       text-transform: uppercase;
     }
@@ -143,31 +142,31 @@
     .big-card {
       border: 3px solid rgba(157, 255, 0, 0.85);
       border-radius: 24px;
-      padding: 20px;
+      padding: 16px;
       background:
         radial-gradient(circle at top, rgba(157, 255, 0, 0.22), transparent 45%),
         rgba(10, 30, 8, 0.86);
-      margin: 20px 0;
+      margin: 14px 0;
       text-align: center;
       box-shadow: 0 0 20px rgba(157, 255, 0, 0.24);
     }
 
     .scan-label {
       color: #ff6b00;
-      font-size: clamp(1.7rem, 7vw, 2.8rem);
+      font-size: clamp(1.5rem, 6vw, 2.5rem);
       font-weight: 900;
       letter-spacing: 1px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       text-shadow: 2px 2px 0 #3b1300;
       text-transform: uppercase;
     }
 
     .big-result {
-      font-size: clamp(3.2rem, 13vw, 5.2rem);
+      font-size: clamp(2.8rem, 11.5vw, 4.8rem);
       color: #ffffff;
       font-weight: 900;
       line-height: 0.9;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       text-shadow:
         4px 4px 0 #182500,
         0 0 16px rgba(255, 255, 255, 0.45);
@@ -177,23 +176,23 @@
     .verdict {
       font-family: Arial, sans-serif;
       font-weight: 900;
-      font-size: clamp(1.55rem, 6vw, 2.25rem);
+      font-size: clamp(1.35rem, 5.3vw, 2rem);
       line-height: 1.15;
       color: #f5ffe8;
     }
 
     .quick-stats {
       display: grid;
-      gap: 12px;
-      margin: 20px 0;
+      gap: 9px;
+      margin: 14px 0;
     }
 
     .quick-stat {
       border: 2px solid rgba(255, 255, 255, 0.22);
       border-radius: 18px;
-      padding: 16px;
+      padding: 12px;
       background: rgba(255, 255, 255, 0.07);
-      font-size: clamp(1.35rem, 5.5vw, 2rem);
+      font-size: clamp(1.22rem, 5vw, 1.85rem);
       display: flex;
       justify-content: space-between;
       gap: 12px;
@@ -217,20 +216,20 @@
 
     .monster-button {
       width: 100%;
-      min-height: 20vh;
-      padding: 20px;
+      min-height: 15vh;
+      padding: 16px;
       border-radius: 24px;
       border: none;
       background:
         linear-gradient(135deg, #9dff00, #fff200, #ff6b00);
       color: #071000;
-      font-size: clamp(2.4rem, 10vw, 4.2rem);
+      font-size: clamp(2.1rem, 9vw, 3.8rem);
       font-weight: 900;
       cursor: pointer;
       box-shadow:
         0 0 24px rgba(157, 255, 0, 0.55),
         0 8px 0 #385500;
-      margin-top: 18px;
+      margin-top: 14px;
       line-height: 0.95;
     }
 
@@ -244,24 +243,24 @@
 
     .secondary-button {
       width: 100%;
-      padding: 18px;
+      padding: 15px;
       border-radius: 18px;
       border: 2px solid #9dff00;
       background: #111;
       color: #f5ffe8;
-      font-size: clamp(1.35rem, 5vw, 2rem);
+      font-size: clamp(1.25rem, 4.7vw, 1.85rem);
       cursor: pointer;
-      margin-top: 12px;
+      margin-top: 10px;
     }
 
     .main-button {
       width: 100%;
-      padding: 20px;
+      padding: 18px;
       border-radius: 20px;
       border: none;
       background: linear-gradient(135deg, #9dff00, #fff200);
       color: #071000;
-      font-size: clamp(1.7rem, 7vw, 2.7rem);
+      font-size: clamp(1.55rem, 6.5vw, 2.5rem);
       font-weight: 900;
       cursor: pointer;
       box-shadow: 0 0 18px rgba(157, 255, 0, 0.4);
@@ -335,7 +334,7 @@
     .profile-card {
       border: 4px solid #9dff00;
       border-radius: 28px;
-      padding: 22px;
+      padding: 16px;
       background:
         radial-gradient(circle at top, rgba(157, 255, 0, 0.2), transparent 42%),
         radial-gradient(circle at bottom right, rgba(255, 90, 0, 0.16), transparent 42%),
@@ -343,10 +342,10 @@
       box-shadow:
         0 0 26px rgba(157, 255, 0, 0.35),
         inset 0 0 20px rgba(157, 255, 0, 0.08);
-      min-height: 82vh;
+      min-height: auto;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
     }
 
     .profile-top {
@@ -355,16 +354,16 @@
 
     .profile-label {
       color: #ff6b00;
-      font-size: clamp(1.45rem, 5vw, 2rem);
+      font-size: clamp(1.25rem, 4.6vw, 1.8rem);
       text-shadow: 2px 2px 0 #3b1300;
       text-transform: uppercase;
     }
 
     .profile-name {
       color: #ffffff;
-      font-size: clamp(3rem, 12vw, 5rem);
+      font-size: clamp(2.6rem, 10.5vw, 4.4rem);
       line-height: 0.9;
-      margin: 8px 0 12px;
+      margin: 8px 0 10px;
       text-shadow:
         4px 4px 0 #273b00,
         0 0 15px rgba(255, 255, 255, 0.35);
@@ -374,7 +373,7 @@
 
     .profile-title {
       color: #fff200;
-      font-size: clamp(1.8rem, 7vw, 3rem);
+      font-size: clamp(1.55rem, 6.2vw, 2.6rem);
       line-height: 1;
       text-transform: uppercase;
       text-shadow: 3px 3px 0 #3b3500;
@@ -382,8 +381,8 @@
 
     .profile-stats {
       display: grid;
-      gap: 10px;
-      margin: 18px 0;
+      gap: 8px;
+      margin: 14px 0;
       font-family: Arial, sans-serif;
       font-weight: 900;
     }
@@ -393,8 +392,8 @@
       justify-content: space-between;
       gap: 12px;
       border-bottom: 2px dashed rgba(255, 255, 255, 0.2);
-      padding: 10px 0;
-      font-size: clamp(1.1rem, 4.6vw, 1.55rem);
+      padding: 8px 0;
+      font-size: clamp(1.02rem, 4.1vw, 1.42rem);
     }
 
     .stat span:first-child {
@@ -407,41 +406,41 @@
     }
 
     .profile-text {
-      margin-top: 12px;
-      padding: 16px;
+      margin-top: 10px;
+      padding: 13px;
       border-radius: 18px;
       background: rgba(157, 255, 0, 0.1);
       border: 2px solid rgba(157, 255, 0, 0.45);
       font-family: Arial, sans-serif;
-      font-size: clamp(1.05rem, 4.2vw, 1.45rem);
-      line-height: 1.3;
+      font-size: clamp(0.98rem, 3.9vw, 1.32rem);
+      line-height: 1.25;
       font-weight: 900;
     }
 
     .badges {
-      margin-top: 14px;
+      margin-top: 10px;
     }
 
     .badge {
       display: inline-block;
-      margin: 6px 5px 0 0;
-      padding: 9px 11px;
+      margin: 5px 4px 0 0;
+      padding: 8px 10px;
       border-radius: 999px;
       background: rgba(255, 242, 0, 0.14);
       border: 2px solid rgba(255, 242, 0, 0.5);
       color: #fff8b0;
       font-family: Arial, sans-serif;
-      font-size: clamp(0.95rem, 3.8vw, 1.2rem);
+      font-size: clamp(0.9rem, 3.5vw, 1.12rem);
       font-weight: 900;
     }
 
     .footer-note {
-      margin-top: 18px;
+      margin-top: 12px;
       text-align: center;
       color: #d5ffaa;
       font-family: Arial, sans-serif;
       font-weight: 900;
-      font-size: clamp(1rem, 4vw, 1.25rem);
+      font-size: clamp(0.95rem, 3.6vw, 1.15rem);
       line-height: 1.25;
     }
 
