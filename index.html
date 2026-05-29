@@ -309,10 +309,19 @@
     }
 
     .path-button.selected {
-      border-color: #fff200;
-      box-shadow: 0 0 18px rgba(255, 242, 0, 0.35);
-      background: rgba(255, 242, 0, 0.16);
-    }
+  border-color: #fff200;
+  border-width: 4px;
+  background:
+    linear-gradient(135deg, rgba(255, 242, 0, 0.36), rgba(157, 255, 0, 0.22));
+  box-shadow:
+    0 0 24px rgba(255, 242, 0, 0.75),
+    inset 0 0 18px rgba(255, 242, 0, 0.22);
+  transform: scale(1.025);
+}
+    .path-button.selected .path-name::before {
+  content: "☣ SELECTED: ";
+  color: #9dff00;
+}
 
     .path-name {
       display: block;
