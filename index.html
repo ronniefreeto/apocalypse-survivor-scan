@@ -442,6 +442,47 @@
       font-size: clamp(0.9rem, 3.5vw, 1.12rem);
       font-weight: 900;
     }
+    .badge {
+  display: inline-block;
+  margin: 5px 4px 0 0;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 242, 0, 0.14);
+  border: 2px solid rgba(255, 242, 0, 0.5);
+  color: #fff8b0;
+  font-family: Arial, sans-serif;
+  font-size: clamp(0.9rem, 3.5vw, 1.12rem);
+  font-weight: 900;
+}
+
+.radiate-tag {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 18px;
+  border: 2px solid rgba(255, 242, 0, 0.55);
+  background: rgba(255, 242, 0, 0.12);
+  color: #fff8b0;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(1rem, 4vw, 1.35rem);
+  line-height: 1.25;
+}
+
+.radiate-tag strong {
+  color: #ffffff;
+  font-size: 1.15em;
+}
+
+.footer-note {
+  margin-top: 12px;
+  text-align: center;
+  color: #d5ffaa;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(0.95rem, 3.6vw, 1.15rem);
+  line-height: 1.25;
+}
 
     .footer-note {
       margin-top: 12px;
@@ -819,8 +860,14 @@
           <strong>Diagnosis:</strong><br>${randomFrom(finalDiagnoses)}
         </div>
 
-        <div class="badges">
+         <div class="badges">
           ${pickedBadges.map(badge => `<span class="badge">${badge}</span>`).join("")}
+        </div>
+
+        <div class="radiate-tag">
+          WASTELAND SIGNAL<br>
+          Find me on Radiate and let me know if you survived:<br>
+          <strong>@R2jdf</strong>
         </div>
 
         ${rareEvent}
