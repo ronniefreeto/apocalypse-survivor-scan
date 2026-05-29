@@ -13,27 +13,33 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Impact, Arial Black, Arial, sans-serif;
       background:
-        radial-gradient(circle at top, rgba(255, 80, 0, 0.25), transparent 32%),
-        radial-gradient(circle at bottom, rgba(0, 255, 120, 0.13), transparent 38%),
-        #050505;
-      color: #f5f5f5;
+        radial-gradient(circle at top left, rgba(137, 255, 0, 0.35), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(255, 60, 0, 0.32), transparent 35%),
+        radial-gradient(circle at center, rgba(80, 0, 120, 0.22), transparent 50%),
+        #050605;
+      color: #f5ffe8;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding: 16px;
+      padding: 14px;
+      overflow-x: hidden;
     }
 
     .container {
       width: 100%;
-      max-width: 520px;
-      min-height: 90vh;
-      border: 2px solid #66ff99;
-      border-radius: 22px;
-      background: rgba(8, 8, 8, 0.94);
-      box-shadow: 0 0 28px rgba(102, 255, 153, 0.25);
-      padding: 22px;
+      max-width: 560px;
+      min-height: 94vh;
+      border: 3px solid #9dff00;
+      border-radius: 26px;
+      background:
+        linear-gradient(160deg, rgba(10, 18, 8, 0.96), rgba(20, 8, 8, 0.96)),
+        #070707;
+      box-shadow:
+        0 0 28px rgba(157, 255, 0, 0.35),
+        inset 0 0 24px rgba(157, 255, 0, 0.08);
+      padding: 20px;
       position: relative;
       overflow: hidden;
     }
@@ -42,20 +48,56 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.035),
-        rgba(255, 255, 255, 0.035) 1px,
-        transparent 1px,
-        transparent 7px
-      );
+      background:
+        radial-gradient(circle at 15% 12%, rgba(157, 255, 0, 0.18) 0 7%, transparent 8%),
+        radial-gradient(circle at 85% 24%, rgba(255, 80, 0, 0.16) 0 8%, transparent 9%),
+        radial-gradient(circle at 70% 84%, rgba(157, 255, 0, 0.12) 0 10%, transparent 11%),
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.035),
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px,
+          transparent 8px
+        );
       pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .slime {
+      position: absolute;
+      width: 90px;
+      height: 160px;
+      background: #9dff00;
+      opacity: 0.28;
+      border-radius: 0 0 45px 45px;
+      filter: blur(0.2px);
+      top: -30px;
+      z-index: 0;
+    }
+
+    .slime.one {
+      left: 12%;
+      height: 120px;
+    }
+
+    .slime.two {
+      left: 48%;
+      height: 180px;
+      width: 60px;
       opacity: 0.22;
+    }
+
+    .slime.three {
+      right: 9%;
+      height: 95px;
+      width: 75px;
+      opacity: 0.25;
     }
 
     .screen {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      min-height: 88vh;
     }
 
     .hidden {
@@ -65,230 +107,342 @@
     h1 {
       margin: 0;
       text-align: center;
-      color: #66ff99;
-      font-size: clamp(2.2rem, 8vw, 3.4rem);
-      line-height: 0.95;
+      color: #9dff00;
+      font-size: clamp(3.4rem, 14vw, 5.4rem);
+      line-height: 0.85;
       letter-spacing: 1px;
-      text-shadow: 0 0 12px rgba(102, 255, 153, 0.65);
+      text-shadow:
+        4px 4px 0 #2c4700,
+        0 0 18px rgba(157, 255, 0, 0.8);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      text-align: center;
+      color: #9dff00;
+      font-size: clamp(2.5rem, 10vw, 4rem);
+      line-height: 0.95;
+      text-shadow:
+        3px 3px 0 #2c4700,
+        0 0 16px rgba(157, 255, 0, 0.7);
+      text-transform: uppercase;
     }
 
     .subtitle {
       text-align: center;
-      color: #cccccc;
-      font-size: 1.15rem;
-      margin: 14px 0 24px;
-      line-height: 1.35;
+      color: #f4ffd5;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.55rem, 6vw, 2.2rem);
+      margin: 18px 0 22px;
+      line-height: 1.15;
+      text-transform: uppercase;
     }
 
     .big-card {
-      border: 1px solid rgba(102, 255, 153, 0.65);
-      border-radius: 18px;
+      border: 3px solid rgba(157, 255, 0, 0.85);
+      border-radius: 24px;
       padding: 20px;
-      background: rgba(102, 255, 153, 0.09);
-      margin: 18px 0;
+      background:
+        radial-gradient(circle at top, rgba(157, 255, 0, 0.22), transparent 45%),
+        rgba(10, 30, 8, 0.86);
+      margin: 20px 0;
       text-align: center;
+      box-shadow: 0 0 20px rgba(157, 255, 0, 0.24);
     }
 
     .scan-label {
-      color: #ffcc00;
-      font-size: 1rem;
-      font-weight: bold;
+      color: #ff6b00;
+      font-size: clamp(1.7rem, 7vw, 2.8rem);
+      font-weight: 900;
       letter-spacing: 1px;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      text-shadow: 2px 2px 0 #3b1300;
+      text-transform: uppercase;
     }
 
     .big-result {
-      font-size: clamp(1.8rem, 7vw, 2.8rem);
-      font-weight: bold;
-      line-height: 1.05;
-      margin-bottom: 14px;
+      font-size: clamp(3.2rem, 13vw, 5.2rem);
+      color: #ffffff;
+      font-weight: 900;
+      line-height: 0.9;
+      margin-bottom: 18px;
+      text-shadow:
+        4px 4px 0 #182500,
+        0 0 16px rgba(255, 255, 255, 0.45);
+      text-transform: uppercase;
     }
 
     .verdict {
-      font-size: 1.25rem;
-      line-height: 1.35;
-      color: #eeeeee;
-      margin-top: 10px;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.55rem, 6vw, 2.25rem);
+      line-height: 1.15;
+      color: #f5ffe8;
     }
 
     .quick-stats {
       display: grid;
-      gap: 10px;
-      margin: 18px 0;
+      gap: 12px;
+      margin: 20px 0;
     }
 
     .quick-stat {
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 14px;
-      padding: 14px;
-      background: rgba(255, 255, 255, 0.05);
-      font-size: 1.12rem;
+      border: 2px solid rgba(255, 255, 255, 0.22);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.07);
+      font-size: clamp(1.35rem, 5.5vw, 2rem);
       display: flex;
       justify-content: space-between;
       gap: 12px;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
     }
 
     .quick-stat span:first-child {
-      color: #bbbbbb;
+      color: #d5ffaa;
     }
 
     .quick-stat span:last-child {
       color: #ffffff;
-      font-weight: bold;
       text-align: right;
     }
 
-    .main-button {
+    button {
+      font-family: Impact, Arial Black, Arial, sans-serif;
+      text-transform: uppercase;
+    }
+
+    .monster-button {
       width: 100%;
-      padding: 18px;
-      border-radius: 16px;
+      min-height: 20vh;
+      padding: 20px;
+      border-radius: 24px;
       border: none;
-      background: #66ff99;
-      color: #050505;
-      font-size: 1.25rem;
-      font-weight: bold;
+      background:
+        linear-gradient(135deg, #9dff00, #fff200, #ff6b00);
+      color: #071000;
+      font-size: clamp(2.4rem, 10vw, 4.2rem);
+      font-weight: 900;
       cursor: pointer;
-      box-shadow: 0 0 18px rgba(102, 255, 153, 0.38);
-      margin-top: 12px;
+      box-shadow:
+        0 0 24px rgba(157, 255, 0, 0.55),
+        0 8px 0 #385500;
+      margin-top: 18px;
+      line-height: 0.95;
     }
 
-    .secondary-button {
-      width: 100%;
-      padding: 15px;
-      border-radius: 16px;
-      border: 1px solid #777;
-      background: #151515;
-      color: #f2f2f2;
-      font-size: 1.05rem;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
+    .monster-button:active,
     .main-button:active,
     .secondary-button:active,
     .path-button:active {
       transform: scale(0.98);
+      box-shadow: 0 0 12px rgba(157, 255, 0, 0.35);
     }
 
-    h2 {
-      text-align: center;
-      color: #66ff99;
-      font-size: 2rem;
-      margin: 0 0 10px;
+    .secondary-button {
+      width: 100%;
+      padding: 18px;
+      border-radius: 18px;
+      border: 2px solid #9dff00;
+      background: #111;
+      color: #f5ffe8;
+      font-size: clamp(1.35rem, 5vw, 2rem);
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    .main-button {
+      width: 100%;
+      padding: 20px;
+      border-radius: 20px;
+      border: none;
+      background: linear-gradient(135deg, #9dff00, #fff200);
+      color: #071000;
+      font-size: clamp(1.7rem, 7vw, 2.7rem);
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 0 18px rgba(157, 255, 0, 0.4);
+      margin-top: 14px;
     }
 
     label {
       display: block;
-      margin: 16px 0 8px;
-      color: #dddddd;
-      font-weight: bold;
-      font-size: 1.08rem;
+      margin: 18px 0 10px;
+      color: #f5ffe8;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.35rem, 5vw, 1.8rem);
+      text-transform: uppercase;
     }
 
     input {
       width: 100%;
-      padding: 16px;
-      border-radius: 14px;
-      border: 1px solid #66ff99;
-      background: #111;
+      padding: 18px;
+      border-radius: 18px;
+      border: 3px solid #9dff00;
+      background: #101510;
       color: #fff;
-      font-size: 1.2rem;
+      font-size: clamp(1.5rem, 6vw, 2.1rem);
       outline: none;
+      font-weight: 900;
     }
 
     .path-grid {
       display: grid;
-      gap: 10px;
-      margin-top: 10px;
+      gap: 12px;
+      margin-top: 12px;
     }
 
     .path-button {
       width: 100%;
       text-align: left;
-      padding: 15px;
-      border-radius: 15px;
-      border: 1px solid rgba(102, 255, 153, 0.55);
-      background: rgba(255, 255, 255, 0.055);
+      padding: 18px;
+      border-radius: 18px;
+      border: 2px solid rgba(157, 255, 0, 0.65);
+      background:
+        linear-gradient(135deg, rgba(157, 255, 0, 0.12), rgba(255, 90, 0, 0.08));
       color: #f2f2f2;
       cursor: pointer;
-      font-size: 1rem;
+      font-family: Arial, sans-serif;
     }
 
     .path-button.selected {
-      border-color: #ffcc00;
-      box-shadow: 0 0 14px rgba(255, 204, 0, 0.3);
-      background: rgba(255, 204, 0, 0.13);
+      border-color: #fff200;
+      box-shadow: 0 0 18px rgba(255, 242, 0, 0.35);
+      background: rgba(255, 242, 0, 0.16);
     }
 
     .path-name {
       display: block;
-      color: #ffcc00;
-      font-weight: bold;
-      font-size: 1.18rem;
-      margin-bottom: 4px;
+      color: #fff200;
+      font-weight: 900;
+      font-size: clamp(1.55rem, 6vw, 2.15rem);
+      margin-bottom: 6px;
+      text-transform: uppercase;
     }
 
     .path-desc {
       display: block;
-      color: #cccccc;
-      line-height: 1.3;
+      color: #f5ffe8;
+      line-height: 1.25;
+      font-size: clamp(1.05rem, 4.2vw, 1.4rem);
+      font-weight: 800;
     }
 
-    .result-card {
-      display: none;
-      margin-top: 18px;
-      border: 1px solid rgba(255, 204, 0, 0.55);
-      border-radius: 18px;
-      padding: 18px;
-      background: rgba(255, 204, 0, 0.08);
+    .profile-card {
+      border: 4px solid #9dff00;
+      border-radius: 28px;
+      padding: 22px;
+      background:
+        radial-gradient(circle at top, rgba(157, 255, 0, 0.2), transparent 42%),
+        radial-gradient(circle at bottom right, rgba(255, 90, 0, 0.16), transparent 42%),
+        rgba(8, 14, 8, 0.94);
+      box-shadow:
+        0 0 26px rgba(157, 255, 0, 0.35),
+        inset 0 0 20px rgba(157, 255, 0, 0.08);
+      min-height: 82vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .profile-top {
+      text-align: center;
+    }
+
+    .profile-label {
+      color: #ff6b00;
+      font-size: clamp(1.45rem, 5vw, 2rem);
+      text-shadow: 2px 2px 0 #3b1300;
+      text-transform: uppercase;
+    }
+
+    .profile-name {
+      color: #ffffff;
+      font-size: clamp(3rem, 12vw, 5rem);
+      line-height: 0.9;
+      margin: 8px 0 12px;
+      text-shadow:
+        4px 4px 0 #273b00,
+        0 0 15px rgba(255, 255, 255, 0.35);
+      text-transform: uppercase;
+      word-break: break-word;
+    }
+
+    .profile-title {
+      color: #fff200;
+      font-size: clamp(1.8rem, 7vw, 3rem);
+      line-height: 1;
+      text-transform: uppercase;
+      text-shadow: 3px 3px 0 #3b3500;
+    }
+
+    .profile-stats {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
     }
 
     .stat {
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.18);
+      border-bottom: 2px dashed rgba(255, 255, 255, 0.2);
       padding: 10px 0;
-      font-size: 1.05rem;
+      font-size: clamp(1.1rem, 4.6vw, 1.55rem);
     }
 
     .stat span:first-child {
-      color: #bbbbbb;
+      color: #d5ffaa;
     }
 
     .stat span:last-child {
       color: #ffffff;
       text-align: right;
-      font-weight: bold;
     }
 
     .profile-text {
+      margin-top: 12px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(157, 255, 0, 0.1);
+      border: 2px solid rgba(157, 255, 0, 0.45);
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.05rem, 4.2vw, 1.45rem);
+      line-height: 1.3;
+      font-weight: 900;
+    }
+
+    .badges {
       margin-top: 14px;
-      padding: 14px;
-      border-radius: 14px;
-      background: rgba(102, 255, 153, 0.1);
-      border: 1px solid rgba(102, 255, 153, 0.45);
-      font-size: 1.08rem;
-      line-height: 1.4;
     }
 
     .badge {
       display: inline-block;
       margin: 6px 5px 0 0;
-      padding: 8px 10px;
+      padding: 9px 11px;
       border-radius: 999px;
-      background: rgba(102, 255, 153, 0.13);
-      border: 1px solid rgba(102, 255, 153, 0.45);
-      color: #dfffe8;
-      font-size: 0.92rem;
+      background: rgba(255, 242, 0, 0.14);
+      border: 2px solid rgba(255, 242, 0, 0.5);
+      color: #fff8b0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(0.95rem, 3.8vw, 1.2rem);
+      font-weight: 900;
     }
 
     .footer-note {
       margin-top: 18px;
       text-align: center;
-      color: #888;
-      font-size: 0.9rem;
-      line-height: 1.35;
+      color: #d5ffaa;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      font-size: clamp(1rem, 4vw, 1.25rem);
+      line-height: 1.25;
     }
 
     .glitch {
@@ -296,36 +450,39 @@
     }
 
     @keyframes glitch {
-      0% { text-shadow: 2px 0 #ff3333, -2px 0 #33ccff; }
-      25% { text-shadow: -2px 0 #ff3333, 2px 0 #33ccff; }
-      50% { text-shadow: 2px 0 #ffcc00, -2px 0 #66ff99; }
-      75% { text-shadow: -1px 0 #33ccff, 1px 0 #ff3333; }
-      100% { text-shadow: 2px 0 #ff3333, -2px 0 #33ccff; }
+      0% { text-shadow: 4px 4px 0 #2c4700, 3px 0 #ff3b00, -3px 0 #00eaff; }
+      25% { text-shadow: 4px 4px 0 #2c4700, -3px 0 #ff3b00, 3px 0 #00eaff; }
+      50% { text-shadow: 4px 4px 0 #2c4700, 3px 0 #fff200, -3px 0 #9dff00; }
+      75% { text-shadow: 4px 4px 0 #2c4700, -2px 0 #00eaff, 2px 0 #ff3b00; }
+      100% { text-shadow: 4px 4px 0 #2c4700, 3px 0 #ff3b00, -3px 0 #00eaff; }
     }
   </style>
 </head>
 
 <body>
   <div class="container">
+    <div class="slime one"></div>
+    <div class="slime two"></div>
+    <div class="slime three"></div>
 
-    <!-- COVER SCREEN -->
+    <!-- PAGE 1: COVER SCAN -->
     <div id="coverScreen" class="screen">
       <h1 class="glitch">DID YOU SURVIVE?</h1>
-      <p class="subtitle">Apocalypse survivor scan complete.</p>
+      <p class="subtitle">Zombie bass scan complete.</p>
 
       <div class="big-card">
-        <div class="scan-label">FINAL VERDICT</div>
+        <div class="scan-label">Final Verdict</div>
         <div id="coverTitle" class="big-result"></div>
         <div id="coverVerdict" class="verdict"></div>
       </div>
 
       <div class="quick-stats">
         <div class="quick-stat">
-          <span>Bass Resistance</span>
+          <span>Bass</span>
           <span id="bassStat"></span>
         </div>
         <div class="quick-stat">
-          <span>Hydration Status</span>
+          <span>Hydration</span>
           <span id="hydrationStat"></span>
         </div>
         <div class="quick-stat">
@@ -334,30 +491,38 @@
         </div>
       </div>
 
-      <button class="main-button" onclick="showDeepScan()">CONTINUE SCAN</button>
+      <button class="monster-button" onclick="showPathScreen()">CONTINUE SCAN</button>
       <button class="secondary-button" onclick="rerollCover()">SCAN AGAIN</button>
 
-      <p class="footer-note">No reading required. The machine has already judged you.</p>
+      <p class="footer-note">No reading required. The machine already judged you.</p>
     </div>
 
-    <!-- DEEP SCAN SCREEN -->
-    <div id="deepScreen" class="screen hidden">
-      <h2>Full Survivor Scan</h2>
-      <p class="subtitle">Optional advanced nonsense.</p>
+    <!-- PAGE 2: PATH SELECTION -->
+    <div id="pathScreen" class="screen hidden">
+      <h2 class="glitch">CHOOSE YOUR FATE</h2>
+      <p class="subtitle">Name yourself. Pick a path. Or let chaos decide.</p>
 
-      <label for="survivorName">Survivor name</label>
-      <input id="survivorName" type="text" placeholder="Enter name or nickname" maxlength="24" />
+      <label for="survivorName">Survivor Name</label>
+      <input id="survivorName" type="text" placeholder="Name or nickname" maxlength="24" />
 
-      <label>Choose your survival path</label>
+      <label>Survival Path</label>
       <div class="path-grid" id="pathGrid"></div>
 
-      <button class="main-button" onclick="generateProfile()">GENERATE PROFILE</button>
+      <button class="main-button" onclick="generateProfile()">MAKE MY PROFILE</button>
       <button class="secondary-button" onclick="randomPath()">PICK FOR ME</button>
-      <button class="secondary-button" onclick="showCover()">BACK TO SIMPLE SCAN</button>
-
-      <div id="profileResult" class="result-card"></div>
+      <button class="secondary-button" onclick="showCover()">BACK</button>
     </div>
 
+    <!-- PAGE 3: SCREENSHOT PROFILE -->
+    <div id="profileScreen" class="screen hidden">
+      <div id="profileCard" class="profile-card"></div>
+
+      <button class="main-button" onclick="generateProfile()">REROLL PROFILE</button>
+      <button class="secondary-button" onclick="showPathScreen()">CHANGE PATH</button>
+      <button class="secondary-button" onclick="showCover()">START OVER</button>
+
+      <p class="footer-note">Screenshot your official apocalypse diagnosis.</p>
+    </div>
   </div>
 
   <script>
@@ -369,34 +534,32 @@
       "BASSPROOF",
       "SUSPICIOUSLY FINE",
       "FERAL BUT FUNCTIONAL",
-      "SURVIVOR-ish",
       "NOT DEAD YET",
-      "VIBES DETECTED"
+      "VIBES DETECTED",
+      "UNDEAD-ish"
     ];
 
     const coverVerdicts = [
-      "You survived the apocalypse, but only because the zombies got distracted by the bass.",
-      "You are not infected. You are just overstimulated and making brave choices.",
-      "The scanner cannot explain how you survived. It recommends not questioning it.",
-      "You are cleared for the wasteland. Please hydrate before making eye contact with strangers.",
-      "The zombies voted to leave you alone. They said your vibes were too confusing.",
-      "You survived, but your sleep schedule did not.",
-      "You are apocalypse-ready, assuming the apocalypse has food trucks and loud music.",
-      "Survival confirmed. Dignity status still pending.",
-      "You have been classified as mostly safe, mildly feral, and dangerously approachable.",
-      "You made it through the blast zone with only minor emotional damage."
+      "Zombies got distracted by the bass.",
+      "Not infected. Just overstimulated.",
+      "Survival confirmed. Dignity pending.",
+      "The scanner recommends water.",
+      "The zombies fear your vibe.",
+      "You lived. Your sleep schedule did not.",
+      "Cleared for the wasteland.",
+      "Too feral to eliminate.",
+      "Mostly safe. Mildly haunted.",
+      "The machine refuses to explain this."
     ];
 
     const hydrationLevels = [
       "Suspicious",
       "Low",
-      "Questionable",
       "Needs Water",
       "Vibes Only",
       "Barely Legal",
-      "Surprisingly OK",
-      "Electrolytes Needed",
-      "Ask Later",
+      "Electrolytes",
+      "Unclear",
       "Not Great"
     ];
 
@@ -407,8 +570,6 @@
       "They Fear You",
       "Too Loud",
       "Unclear",
-      "Respectful Distance",
-      "Emotionally Intimidated",
       "Distracted",
       "Manageable"
     ];
@@ -416,7 +577,7 @@
     const paths = [
       {
         name: "The Raver",
-        desc: "Bass drops, kandi, optimism, and no idea what time it is.",
+        desc: "Bass drops, kandi, optimism, no idea what time it is.",
         ability: "Can locate any stage using only sub-bass vibrations.",
         weakness: "Forgets water exists until personally confronted.",
         item: "Emergency kandi bracelet"
@@ -458,7 +619,7 @@
       },
       {
         name: "The Bass Monk",
-        desc: "Calm in the crowd and spiritually aligned with the subwoofer.",
+        desc: "Calm in the crowd. Spiritually aligned with the subwoofer.",
         ability: "Can meditate through a rail-shaking drop.",
         weakness: "Speaks in riddles after 1 AM.",
         item: "Sacred earplugs"
@@ -482,23 +643,30 @@
       "Survivor #404",
       "Minister of Bad Ideas",
       "The Final Goblin",
-      "Lord of Lost Charging Cables",
+      "Lord of Lost Chargers",
       "Captain of the Bass Zone",
       "Certified Crowd Cryptid",
-      "The Unreasonably Durable One",
+      "The Durable One",
       "Apocalypse Vibe Inspector",
-      "The Walking Side Quest"
+      "The Walking Side Quest",
+      "Wasteland Snack Baron",
+      "Zombie Negotiator",
+      "Slime Zone Survivor",
+      "Rave Ruins Royalty",
+      "Undead Bass Magnet"
     ];
 
     const finalDiagnoses = [
-      "Survived the apocalypse, but lost three friends, two brain cells, and one charging cable.",
-      "Cleared for survival with a strong recommendation to drink water.",
+      "Survived the apocalypse, but lost two brain cells and one charging cable.",
+      "Cleared for survival. Drink water immediately.",
       "Likely to survive because nobody can predict what you are doing.",
-      "Dangerous in groups, powerful alone, unstoppable near loud speakers.",
-      "The wasteland accepts you, but your knees have filed a complaint.",
-      "Not the main character, but absolutely in the weirdest subplot.",
-      "Survival chance increased by confidence. Decreased by common sense.",
-      "Fit for apocalypse travel, provided someone else remembers where the car is."
+      "Dangerous in groups. Powerful alone. Unstoppable near speakers.",
+      "The wasteland accepts you. Your knees do not.",
+      "Not the main character, but definitely in the weirdest subplot.",
+      "Confidence high. Common sense missing.",
+      "Fit for apocalypse travel if someone else remembers where the car is.",
+      "Too weird to bite. Zombies have moved on.",
+      "Classified as alive, loud, and medically confusing."
     ];
 
     const badges = [
@@ -513,7 +681,10 @@
       "Low Battery Legend",
       "Kandi Diplomat",
       "Festival Feral",
-      "Map Optional"
+      "Map Optional",
+      "Slime Resistant",
+      "Brain Cell Survivor",
+      "Haunted Hallway Approved"
     ];
 
     let selectedPathIndex = null;
@@ -526,8 +697,24 @@
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    function makeStat(label, value) {
-      return `<div class="stat"><span>${label}</span><span>${value}</span></div>`;
+    function showOnly(screenId) {
+      document.getElementById("coverScreen").classList.add("hidden");
+      document.getElementById("pathScreen").classList.add("hidden");
+      document.getElementById("profileScreen").classList.add("hidden");
+      document.getElementById(screenId).classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showCover() {
+      showOnly("coverScreen");
+    }
+
+    function showPathScreen() {
+      showOnly("pathScreen");
+    }
+
+    function showProfileScreen() {
+      showOnly("profileScreen");
     }
 
     function rerollCover() {
@@ -536,18 +723,6 @@
       document.getElementById("bassStat").textContent = randomNumber(54, 99) + "%";
       document.getElementById("hydrationStat").textContent = randomFrom(hydrationLevels);
       document.getElementById("zombieStat").textContent = randomFrom(zombieRisks);
-    }
-
-    function showDeepScan() {
-      document.getElementById("coverScreen").classList.add("hidden");
-      document.getElementById("deepScreen").classList.remove("hidden");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function showCover() {
-      document.getElementById("deepScreen").classList.add("hidden");
-      document.getElementById("coverScreen").classList.remove("hidden");
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function renderPaths() {
@@ -579,15 +754,22 @@
       });
     }
 
+    function statLine(label, value) {
+      return `<div class="stat"><span>${label}</span><span>${value}</span></div>`;
+    }
+
     function generateProfile() {
       const nameInput = document.getElementById("survivorName").value.trim();
+
       const survivorName = nameInput || randomFrom([
         "Unknown Entity",
         "Mystery Goblin",
         "Bass Creature",
         "Lost Festival Person",
         "Suspicious Human",
-        "Wandering Rando"
+        "Wandering Rando",
+        "Unregistered Lifeform",
+        "Slime Witness"
       ]);
 
       if (selectedPathIndex === null) {
@@ -608,35 +790,35 @@
         ? `<div class="profile-text"><strong>RARE EVENT:</strong><br>The zombies have accepted you as one of their emotionally complicated leaders.</div>`
         : "";
 
-      document.getElementById("profileResult").style.display = "block";
-      document.getElementById("profileResult").innerHTML = `
-        <h2 class="glitch">PROFILE READY</h2>
-
-        ${makeStat("Name", survivorName)}
-        ${makeStat("Title", randomFrom(titles))}
-        ${makeStat("Path", path.name)}
-        ${makeStat("Survival Chance", randomNumber(45, 99) + "%")}
-        ${makeStat("Zombie Bite Risk", randomNumber(1, 42) + "%")}
-        ${makeStat("Dance Power", randomNumber(55, 100) + "%")}
-
-        <div class="profile-text">
-          <strong>Special Ability:</strong><br>${path.ability}<br><br>
-          <strong>Weakness:</strong><br>${path.weakness}<br><br>
-          <strong>Starting Item:</strong><br>${path.item}<br><br>
-          <strong>Final Diagnosis:</strong><br>${randomFrom(finalDiagnoses)}
+      document.getElementById("profileCard").innerHTML = `
+        <div class="profile-top">
+          <div class="profile-label">Official Survivor Profile</div>
+          <div class="profile-name">${survivorName}</div>
+          <div class="profile-title">${randomFrom(titles)}</div>
         </div>
 
-        <div style="margin-top: 12px;">
+        <div class="profile-stats">
+          ${statLine("Path", path.name)}
+          ${statLine("Survival", randomNumber(45, 99) + "%")}
+          ${statLine("Bite Risk", randomNumber(1, 42) + "%")}
+          ${statLine("Dance Power", randomNumber(55, 100) + "%")}
+        </div>
+
+        <div class="profile-text">
+          <strong>Ability:</strong><br>${path.ability}<br><br>
+          <strong>Weakness:</strong><br>${path.weakness}<br><br>
+          <strong>Item:</strong><br>${path.item}<br><br>
+          <strong>Diagnosis:</strong><br>${randomFrom(finalDiagnoses)}
+        </div>
+
+        <div class="badges">
           ${pickedBadges.map(badge => `<span class="badge">${badge}</span>`).join("")}
         </div>
 
         ${rareEvent}
       `;
 
-      document.getElementById("profileResult").scrollIntoView({
-        behavior: "smooth",
-        block: "nearest"
-      });
+      showProfileScreen();
     }
 
     renderPaths();
