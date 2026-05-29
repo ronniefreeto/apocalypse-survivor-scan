@@ -15,26 +15,27 @@
       min-height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top, rgba(255, 80, 0, 0.22), transparent 30%),
-        radial-gradient(circle at bottom, rgba(0, 255, 120, 0.12), transparent 35%),
-        #070707;
-      color: #f2f2f2;
+        radial-gradient(circle at top, rgba(255, 80, 0, 0.25), transparent 32%),
+        radial-gradient(circle at bottom, rgba(0, 255, 120, 0.13), transparent 38%),
+        #050505;
+      color: #f5f5f5;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding: 22px;
+      padding: 16px;
     }
 
     .container {
       width: 100%;
       max-width: 520px;
+      min-height: 90vh;
       border: 2px solid #66ff99;
-      border-radius: 18px;
-      background: rgba(10, 10, 10, 0.92);
+      border-radius: 22px;
+      background: rgba(8, 8, 8, 0.94);
       box-shadow: 0 0 28px rgba(102, 255, 153, 0.25);
-      padding: 20px;
-      overflow: hidden;
+      padding: 22px;
       position: relative;
+      overflow: hidden;
     }
 
     .container::before {
@@ -46,90 +47,209 @@
         rgba(255, 255, 255, 0.035),
         rgba(255, 255, 255, 0.035) 1px,
         transparent 1px,
-        transparent 5px
+        transparent 7px
       );
       pointer-events: none;
-      opacity: 0.28;
+      opacity: 0.22;
     }
 
-    h1, h2, h3, p, button, input, select, .stat, .verdict, .badge {
+    .screen {
       position: relative;
       z-index: 1;
     }
 
+    .hidden {
+      display: none;
+    }
+
     h1 {
-      margin: 0 0 8px;
-      color: #66ff99;
+      margin: 0;
       text-align: center;
-      font-size: 2rem;
+      color: #66ff99;
+      font-size: clamp(2.2rem, 8vw, 3.4rem);
+      line-height: 0.95;
       letter-spacing: 1px;
-      text-shadow: 0 0 10px rgba(102, 255, 153, 0.55);
+      text-shadow: 0 0 12px rgba(102, 255, 153, 0.65);
     }
 
     .subtitle {
       text-align: center;
       color: #cccccc;
-      margin: 0 0 18px;
-      font-size: 0.95rem;
+      font-size: 1.15rem;
+      margin: 14px 0 24px;
+      line-height: 1.35;
     }
 
-    .warning {
-      border: 1px solid #ffcc00;
-      color: #ffcc00;
-      padding: 10px;
-      border-radius: 12px;
-      margin-bottom: 16px;
+    .big-card {
+      border: 1px solid rgba(102, 255, 153, 0.65);
+      border-radius: 18px;
+      padding: 20px;
+      background: rgba(102, 255, 153, 0.09);
+      margin: 18px 0;
       text-align: center;
+    }
+
+    .scan-label {
+      color: #ffcc00;
+      font-size: 1rem;
       font-weight: bold;
-      animation: pulse 1.6s infinite;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 0.75; }
-      50% { opacity: 1; }
+    .big-result {
+      font-size: clamp(1.8rem, 7vw, 2.8rem);
+      font-weight: bold;
+      line-height: 1.05;
+      margin-bottom: 14px;
     }
 
-    .scanner-box {
-      border: 1px solid rgba(102, 255, 153, 0.5);
+    .verdict {
+      font-size: 1.25rem;
+      line-height: 1.35;
+      color: #eeeeee;
+      margin-top: 10px;
+    }
+
+    .quick-stats {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .quick-stat {
+      border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 14px;
       padding: 14px;
-      margin-bottom: 18px;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 1.12rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
     }
 
-    .loading-label {
-      font-size: 0.85rem;
-      color: #aaaaaa;
-      margin-bottom: 6px;
+    .quick-stat span:first-child {
+      color: #bbbbbb;
     }
 
-    .bar {
-      height: 14px;
+    .quick-stat span:last-child {
+      color: #ffffff;
+      font-weight: bold;
+      text-align: right;
+    }
+
+    .main-button {
+      width: 100%;
+      padding: 18px;
+      border-radius: 16px;
+      border: none;
+      background: #66ff99;
+      color: #050505;
+      font-size: 1.25rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 18px rgba(102, 255, 153, 0.38);
+      margin-top: 12px;
+    }
+
+    .secondary-button {
+      width: 100%;
+      padding: 15px;
+      border-radius: 16px;
+      border: 1px solid #777;
+      background: #151515;
+      color: #f2f2f2;
+      font-size: 1.05rem;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .main-button:active,
+    .secondary-button:active,
+    .path-button:active {
+      transform: scale(0.98);
+    }
+
+    h2 {
+      text-align: center;
+      color: #66ff99;
+      font-size: 2rem;
+      margin: 0 0 10px;
+    }
+
+    label {
+      display: block;
+      margin: 16px 0 8px;
+      color: #dddddd;
+      font-weight: bold;
+      font-size: 1.08rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
       border: 1px solid #66ff99;
-      border-radius: 20px;
-      overflow: hidden;
-      margin-bottom: 10px;
       background: #111;
+      color: #fff;
+      font-size: 1.2rem;
+      outline: none;
     }
 
-    .bar-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #66ff99, #ffcc00, #ff3333);
-      animation: loadBar 1.8s forwards;
+    .path-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
     }
 
-    @keyframes loadBar {
-      to { width: 100%; }
+    .path-button {
+      width: 100%;
+      text-align: left;
+      padding: 15px;
+      border-radius: 15px;
+      border: 1px solid rgba(102, 255, 153, 0.55);
+      background: rgba(255, 255, 255, 0.055);
+      color: #f2f2f2;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .path-button.selected {
+      border-color: #ffcc00;
+      box-shadow: 0 0 14px rgba(255, 204, 0, 0.3);
+      background: rgba(255, 204, 0, 0.13);
+    }
+
+    .path-name {
+      display: block;
+      color: #ffcc00;
+      font-weight: bold;
+      font-size: 1.18rem;
+      margin-bottom: 4px;
+    }
+
+    .path-desc {
+      display: block;
+      color: #cccccc;
+      line-height: 1.3;
+    }
+
+    .result-card {
+      display: none;
+      margin-top: 18px;
+      border: 1px solid rgba(255, 204, 0, 0.55);
+      border-radius: 18px;
+      padding: 18px;
+      background: rgba(255, 204, 0, 0.08);
     }
 
     .stat {
       display: flex;
       justify-content: space-between;
-      gap: 10px;
+      gap: 12px;
       border-bottom: 1px dashed rgba(255, 255, 255, 0.18);
-      padding: 8px 0;
-      font-size: 0.96rem;
+      padding: 10px 0;
+      font-size: 1.05rem;
     }
 
     .stat span:first-child {
@@ -142,151 +262,37 @@
       font-weight: bold;
     }
 
-    .verdict {
+    .profile-text {
       margin-top: 14px;
       padding: 14px;
-      border-radius: 12px;
-      background: rgba(102, 255, 153, 0.11);
-      border: 1px solid rgba(102, 255, 153, 0.55);
-      font-size: 1rem;
-      line-height: 1.45;
-    }
-
-    .section-title {
-      margin-top: 22px;
-      margin-bottom: 10px;
-      color: #66ff99;
-      text-align: center;
-      font-size: 1.25rem;
-    }
-
-    label {
-      display: block;
-      margin: 12px 0 6px;
-      color: #dddddd;
-      font-weight: bold;
-      position: relative;
-      z-index: 1;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid #66ff99;
-      background: #111;
-      color: #fff;
-      font-size: 1rem;
-      outline: none;
-    }
-
-    .path-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 9px;
-      margin-top: 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .path-button {
-      width: 100%;
-      text-align: left;
-      padding: 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(102, 255, 153, 0.55);
-      background: rgba(255, 255, 255, 0.055);
-      color: #f2f2f2;
-      cursor: pointer;
-      transition: 0.15s;
-      font-size: 0.95rem;
-    }
-
-    .path-button:hover {
-      transform: translateY(-1px);
-      background: rgba(102, 255, 153, 0.14);
-    }
-
-    .path-button.selected {
-      border-color: #ffcc00;
-      box-shadow: 0 0 14px rgba(255, 204, 0, 0.28);
-      background: rgba(255, 204, 0, 0.13);
-    }
-
-    .path-name {
-      display: block;
-      color: #ffcc00;
-      font-weight: bold;
-      font-size: 1.02rem;
-      margin-bottom: 3px;
-    }
-
-    .path-desc {
-      display: block;
-      color: #cccccc;
-      line-height: 1.35;
-    }
-
-    .main-button {
-      width: 100%;
-      margin-top: 16px;
-      padding: 13px;
-      border-radius: 12px;
-      border: none;
-      background: #66ff99;
-      color: #050505;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 16px rgba(102, 255, 153, 0.3);
-    }
-
-    .main-button:active {
-      transform: scale(0.98);
-    }
-
-    .small-buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .small-button {
-      padding: 11px;
-      border-radius: 12px;
-      border: 1px solid #777;
-      background: #151515;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    .result-card {
-      display: none;
-      margin-top: 18px;
-      border: 1px solid rgba(255, 204, 0, 0.55);
       border-radius: 14px;
-      padding: 15px;
-      background: rgba(255, 204, 0, 0.08);
-      position: relative;
-      z-index: 1;
+      background: rgba(102, 255, 153, 0.1);
+      border: 1px solid rgba(102, 255, 153, 0.45);
+      font-size: 1.08rem;
+      line-height: 1.4;
     }
 
     .badge {
       display: inline-block;
-      margin: 5px 5px 5px 0;
-      padding: 7px 9px;
+      margin: 6px 5px 0 0;
+      padding: 8px 10px;
       border-radius: 999px;
       background: rgba(102, 255, 153, 0.13);
       border: 1px solid rgba(102, 255, 153, 0.45);
       color: #dfffe8;
-      font-size: 0.84rem;
+      font-size: 0.92rem;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      line-height: 1.35;
     }
 
     .glitch {
-      animation: glitch 1.3s infinite;
+      animation: glitch 1.4s infinite;
     }
 
     @keyframes glitch {
@@ -296,184 +302,174 @@
       75% { text-shadow: -1px 0 #33ccff, 1px 0 #ff3333; }
       100% { text-shadow: 2px 0 #ff3333, -2px 0 #33ccff; }
     }
-
-    .footer-note {
-      margin-top: 18px;
-      text-align: center;
-      color: #888;
-      font-size: 0.78rem;
-      position: relative;
-      z-index: 1;
-    }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h1 class="glitch">APOCALYPSE SURVIVOR SCAN</h1>
-    <p class="subtitle">Emergency festival-grade survival assessment system</p>
 
-    <div class="warning">WARNING: Unverified lifeform detected near the bass zone</div>
+    <!-- COVER SCREEN -->
+    <div id="coverScreen" class="screen">
+      <h1 class="glitch">DID YOU SURVIVE?</h1>
+      <p class="subtitle">Apocalypse survivor scan complete.</p>
 
-    <div class="scanner-box">
-      <div class="loading-label">Scanning wristband residue...</div>
-      <div class="bar"><div class="bar-fill"></div></div>
+      <div class="big-card">
+        <div class="scan-label">FINAL VERDICT</div>
+        <div id="coverTitle" class="big-result"></div>
+        <div id="coverVerdict" class="verdict"></div>
+      </div>
 
-      <div class="loading-label">Checking hydration status...</div>
-      <div class="bar"><div class="bar-fill"></div></div>
+      <div class="quick-stats">
+        <div class="quick-stat">
+          <span>Bass Resistance</span>
+          <span id="bassStat"></span>
+        </div>
+        <div class="quick-stat">
+          <span>Hydration Status</span>
+          <span id="hydrationStat"></span>
+        </div>
+        <div class="quick-stat">
+          <span>Zombie Risk</span>
+          <span id="zombieStat"></span>
+        </div>
+      </div>
 
-      <div class="loading-label">Measuring zombie compatibility...</div>
-      <div class="bar"><div class="bar-fill"></div></div>
+      <button class="main-button" onclick="showDeepScan()">CONTINUE SCAN</button>
+      <button class="secondary-button" onclick="rerollCover()">SCAN AGAIN</button>
 
-      <div id="instantStats"></div>
-      <div id="instantVerdict" class="verdict"></div>
+      <p class="footer-note">No reading required. The machine has already judged you.</p>
     </div>
 
-    <h2 class="section-title">Continue the Scan</h2>
-    <p class="subtitle">Optional. The machine has already judged you, but it can get more specific.</p>
+    <!-- DEEP SCAN SCREEN -->
+    <div id="deepScreen" class="screen hidden">
+      <h2>Full Survivor Scan</h2>
+      <p class="subtitle">Optional advanced nonsense.</p>
 
-    <label for="survivorName">Enter your survivor name</label>
-    <input id="survivorName" type="text" placeholder="Example: Bass Goblin, Chad, Jessica, Unknown Entity" maxlength="24" />
+      <label for="survivorName">Survivor name</label>
+      <input id="survivorName" type="text" placeholder="Enter name or nickname" maxlength="24" />
 
-    <label>Choose your survival path</label>
-    <div class="path-grid" id="pathGrid"></div>
+      <label>Choose your survival path</label>
+      <div class="path-grid" id="pathGrid"></div>
 
-    <button class="main-button" onclick="generateProfile()">GENERATE SURVIVOR PROFILE</button>
+      <button class="main-button" onclick="generateProfile()">GENERATE PROFILE</button>
+      <button class="secondary-button" onclick="randomPath()">PICK FOR ME</button>
+      <button class="secondary-button" onclick="showCover()">BACK TO SIMPLE SCAN</button>
 
-    <div class="small-buttons">
-      <button class="small-button" onclick="rerollInstantScan()">Reroll Scan</button>
-      <button class="small-button" onclick="randomPath()">Pick For Me</button>
+      <div id="profileResult" class="result-card"></div>
     </div>
 
-    <div id="profileResult" class="result-card"></div>
-
-    <p class="footer-note">This scan is legally questionable and emotionally unreliable.</p>
   </div>
 
   <script>
+    const coverTitles = [
+      "YOU LIVED",
+      "BARELY ALIVE",
+      "MOSTLY HUMAN",
+      "ZOMBIE CONFUSED",
+      "BASSPROOF",
+      "SUSPICIOUSLY FINE",
+      "FERAL BUT FUNCTIONAL",
+      "SURVIVOR-ish",
+      "NOT DEAD YET",
+      "VIBES DETECTED"
+    ];
+
+    const coverVerdicts = [
+      "You survived the apocalypse, but only because the zombies got distracted by the bass.",
+      "You are not infected. You are just overstimulated and making brave choices.",
+      "The scanner cannot explain how you survived. It recommends not questioning it.",
+      "You are cleared for the wasteland. Please hydrate before making eye contact with strangers.",
+      "The zombies voted to leave you alone. They said your vibes were too confusing.",
+      "You survived, but your sleep schedule did not.",
+      "You are apocalypse-ready, assuming the apocalypse has food trucks and loud music.",
+      "Survival confirmed. Dignity status still pending.",
+      "You have been classified as mostly safe, mildly feral, and dangerously approachable.",
+      "You made it through the blast zone with only minor emotional damage."
+    ];
+
+    const hydrationLevels = [
+      "Suspicious",
+      "Low",
+      "Questionable",
+      "Needs Water",
+      "Vibes Only",
+      "Barely Legal",
+      "Surprisingly OK",
+      "Electrolytes Needed",
+      "Ask Later",
+      "Not Great"
+    ];
+
+    const zombieRisks = [
+      "Low",
+      "Medium",
+      "Confused",
+      "They Fear You",
+      "Too Loud",
+      "Unclear",
+      "Respectful Distance",
+      "Emotionally Intimidated",
+      "Distracted",
+      "Manageable"
+    ];
+
     const paths = [
       {
         name: "The Raver",
-        desc: "Survives through bass drops, kandi, questionable optimism, and not checking the schedule until it is too late.",
+        desc: "Bass drops, kandi, optimism, and no idea what time it is.",
         ability: "Can locate any stage using only sub-bass vibrations.",
-        weakness: "Forgets water exists until personally confronted by a hydration pack.",
+        weakness: "Forgets water exists until personally confronted.",
         item: "Emergency kandi bracelet"
       },
       {
         name: "The Loot Goblin",
-        desc: "Will survive forever, but everyone else's snacks, chargers, and tiny trinkets keep mysteriously disappearing.",
+        desc: "Somehow has snacks, stickers, and everyone else's charger.",
         ability: "Can find useful trash in any environment.",
-        weakness: "Physically incapable of walking past a free sticker.",
-        item: "Suspiciously full cargo pocket"
+        weakness: "Cannot walk past a free trinket.",
+        item: "Suspiciously full pocket"
       },
       {
         name: "The Tank",
-        desc: "Moves slowly, blocks wind, absorbs chaos, and somehow makes it through the whole weekend on pure stubbornness.",
-        ability: "Can stand in one spot for six hours without complaint.",
-        weakness: "Turns like a forklift in crowded areas.",
-        item: "Industrial-grade emotional armor"
+        desc: "Slow, durable, and impossible to move once planted.",
+        ability: "Can stand in one spot for six hours.",
+        weakness: "Turns like a forklift in crowds.",
+        item: "Industrial emotional armor"
       },
       {
         name: "The Runner",
-        desc: "Fast, panicked, sweaty, and already three stages away from the original group plan.",
-        ability: "Can escape danger before realizing there was danger.",
+        desc: "Fast, panicked, and already three stages away.",
+        ability: "Escapes danger before noticing it.",
         weakness: "Impossible to keep in one place.",
-        item: "One shoe with heroic mileage"
+        item: "One heroic shoe"
       },
       {
         name: "The Medic",
-        desc: "The responsible one. Carries gum, bandages, water, and the crushing burden of everyone else's poor decisions.",
-        ability: "Can revive a fallen friend with Liquid I.V. and disappointment.",
-        weakness: "Attracts helpless people like a side quest marker.",
-        item: "Overprepared mini first-aid kit"
+        desc: "Carries water, gum, bandages, and everyone else's bad decisions.",
+        ability: "Can revive friends with electrolytes and disappointment.",
+        weakness: "Attracts helpless people.",
+        item: "Overprepared mini kit"
       },
       {
         name: "The Chaos Gremlin",
-        desc: "No map, no plan, no fear. Somehow thrives in disaster and makes friends with the weirdest person nearby.",
-        ability: "Turns any bad idea into a memorable side quest.",
-        weakness: "Should not be left unsupervised near buttons, doors, or fog machines.",
-        item: "Mystery wristband from an unknown year"
+        desc: "No map. No plan. No fear. Somehow thriving.",
+        ability: "Turns bad ideas into side quests.",
+        weakness: "Should not be left near buttons.",
+        item: "Mystery wristband"
       },
       {
         name: "The Bass Monk",
-        desc: "Calm in the crowd, peaceful in the pit, spiritually aligned with the subwoofer.",
+        desc: "Calm in the crowd and spiritually aligned with the subwoofer.",
         ability: "Can meditate through a rail-shaking drop.",
-        weakness: "Speaks in riddles after 1:00 AM.",
+        weakness: "Speaks in riddles after 1 AM.",
         item: "Sacred earplugs"
       },
       {
         name: "The Side Quest NPC",
-        desc: "Appears suddenly, gives oddly specific advice, then disappears into the crowd forever.",
+        desc: "Appears suddenly, gives advice, disappears forever.",
         ability: "Can improve someone's night with one sentence.",
-        weakness: "Nobody knows where they came from.",
-        item: "Map fragment with no context"
-      },
-      {
-        name: "The Hydration Liability",
-        desc: "A walking warning label. Fun to be around, but must be reminded that survival requires fluids.",
-        ability: "Can dance for hours on 3% battery and one warm sip of water.",
-        weakness: "Mistakes vibes for nutrition.",
-        item: "Empty water bottle with confidence"
-      },
-      {
-        name: "The Queen Mary Escapee",
-        desc: "Technically checked into the hotel, spiritually trapped in a haunted hallway looking for the elevator.",
-        ability: "Can survive ghosts, bass, and confusing parking instructions.",
-        weakness: "Trusts old elevators too much.",
-        item: "Haunted room key"
+        weakness: "No one knows where they came from.",
+        item: "Map fragment"
       }
-    ];
-
-    const instantVerdicts = [
-      "You survived the apocalypse, but only because the zombies got distracted by the bass.",
-      "You are not infected. You are just underfed, overstimulated, and making brave choices.",
-      "Survival confirmed. Dignity status: pending review.",
-      "You made it through the blast zone with only minor emotional damage and one missing brain cell.",
-      "The scanner cannot explain how you survived. It recommends not questioning it.",
-      "You are cleared for entry into the wasteland. Please hydrate before making eye contact with strangers.",
-      "You have been classified as mostly safe, mildly feral, and dangerously approachable.",
-      "The zombies voted to leave you alone. They said the vibes were too confusing.",
-      "Congratulations. You survived, but your sleep schedule did not.",
-      "You are apocalypse-ready, assuming the apocalypse has food trucks and loud music."
-    ];
-
-    const survivorStatuses = [
-      "Questionable but functional",
-      "Alive against statistical expectations",
-      "Mostly human",
-      "Emotionally buffering",
-      "Bass-resistant",
-      "Wasteland approved",
-      "Certified feral",
-      "Suspiciously durable",
-      "Technically operational",
-      "Mildly haunted"
-    ];
-
-    const hydrationLevels = [
-      "Critically suspicious",
-      "One sip from redemption",
-      "Dryer than the Mojave",
-      "Acceptable, but barely",
-      "Fueled by vibes, not water",
-      "Please locate electrolytes",
-      "Hydration not found",
-      "Surprisingly decent",
-      "Medically confusing",
-      "Ask again after water"
-    ];
-
-    const zombieReadings = [
-      "Nearby but confused",
-      "Ignoring you for easier prey",
-      "Mild interest detected",
-      "Repelled by bass energy",
-      "Trying to join the group chat",
-      "Currently distracted",
-      "Too slow to be a concern",
-      "Emotionally intimidated",
-      "Following from a respectful distance",
-      "Classified as a fan"
     ];
 
     const titles = [
@@ -481,40 +477,28 @@
       "Certified Zombie Distraction",
       "Hydration Liability",
       "Queen Mary Escapee",
-      "Post-Apocalyptic Side Quest NPC",
       "Emergency Kandi Diplomat",
       "Professional Vibe Responder",
-      "Survivor #404: Plan Not Found",
-      "Minister of Questionable Decisions",
-      "Duke of the Bass Containment Zone",
+      "Survivor #404",
+      "Minister of Bad Ideas",
       "The Final Goblin",
       "Lord of Lost Charging Cables",
-      "Captain of the Bad Idea Department",
-      "The Last Rail Wizard",
-      "Part-Time Human, Full-Time Problem",
-      "The Chosen One, Unfortunately",
-      "Wasteland Snack Baron",
+      "Captain of the Bass Zone",
       "Certified Crowd Cryptid",
-      "Bassquake Evacuation Marshal",
-      "Haunted Hotel Hallway Champion",
       "The Unreasonably Durable One",
       "Apocalypse Vibe Inspector",
-      "The Walking Side Quest",
-      "Grand Marshal of the Rave Ruins",
-      "The Beat Drop Survivor"
+      "The Walking Side Quest"
     ];
 
     const finalDiagnoses = [
       "Survived the apocalypse, but lost three friends, two brain cells, and one charging cable.",
-      "Cleared for survival with a strong recommendation to drink water and make better plans.",
-      "Extremely likely to survive, mostly because nobody can predict what you are doing.",
+      "Cleared for survival with a strong recommendation to drink water.",
+      "Likely to survive because nobody can predict what you are doing.",
       "Dangerous in groups, powerful alone, unstoppable near loud speakers.",
       "The wasteland accepts you, but your knees have filed a complaint.",
-      "You are not the main character, but you are absolutely in the weirdest subplot.",
-      "Survival chance increased by confidence. Survival chance decreased by common sense.",
-      "You have the energy of someone who says 'one more set' and means four more hours.",
-      "You are fit for apocalypse travel, provided someone else remembers where the car is.",
-      "You are either very lucky or very hard to eliminate. The scanner cannot tell which."
+      "Not the main character, but absolutely in the weirdest subplot.",
+      "Survival chance increased by confidence. Decreased by common sense.",
+      "Fit for apocalypse travel, provided someone else remembers where the car is."
     ];
 
     const badges = [
@@ -525,19 +509,11 @@
       "Zombie Tolerant",
       "Hydration Pending",
       "Side Quest Ready",
-      "Emotionally Armored",
-      "Vibe Compatible",
-      "Low Battery Legend",
       "Chaos Approved",
-      "Ghost Resistant",
+      "Low Battery Legend",
       "Kandi Diplomat",
-      "Portable Charger Threat",
-      "Wasteland Friendly",
-      "Questionably Prepared",
       "Festival Feral",
-      "Map Optional",
-      "Sleep Deprived",
-      "Medically Unclear"
+      "Map Optional"
     ];
 
     let selectedPathIndex = null;
@@ -554,23 +530,24 @@
       return `<div class="stat"><span>${label}</span><span>${value}</span></div>`;
     }
 
-    function rerollInstantScan() {
-      const bassResistance = randomNumber(52, 99);
-      const survivalChance = randomNumber(38, 96);
-      const chaosLevel = randomNumber(40, 100);
-      const snackIntegrity = randomNumber(1, 100);
+    function rerollCover() {
+      document.getElementById("coverTitle").textContent = randomFrom(coverTitles);
+      document.getElementById("coverVerdict").textContent = randomFrom(coverVerdicts);
+      document.getElementById("bassStat").textContent = randomNumber(54, 99) + "%";
+      document.getElementById("hydrationStat").textContent = randomFrom(hydrationLevels);
+      document.getElementById("zombieStat").textContent = randomFrom(zombieRisks);
+    }
 
-      document.getElementById("instantStats").innerHTML =
-        makeStat("Survivor Status", randomFrom(survivorStatuses)) +
-        makeStat("Bass Resistance", bassResistance + "%") +
-        makeStat("Hydration Level", randomFrom(hydrationLevels)) +
-        makeStat("Zombie Detection", randomFrom(zombieReadings)) +
-        makeStat("Chaos Compatibility", chaosLevel + "%") +
-        makeStat("Snack Integrity", snackIntegrity + "%") +
-        makeStat("Survival Chance", survivalChance + "%");
+    function showDeepScan() {
+      document.getElementById("coverScreen").classList.add("hidden");
+      document.getElementById("deepScreen").classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
-      document.getElementById("instantVerdict").innerHTML =
-        `<strong>Initial Verdict:</strong><br>${randomFrom(instantVerdicts)}`;
+    function showCover() {
+      document.getElementById("deepScreen").classList.add("hidden");
+      document.getElementById("coverScreen").classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function renderPaths() {
@@ -607,12 +584,10 @@
       const survivorName = nameInput || randomFrom([
         "Unknown Entity",
         "Mystery Goblin",
-        "Unregistered Lifeform",
         "Bass Creature",
         "Lost Festival Person",
         "Suspicious Human",
-        "The Wandering Rando",
-        "Survivor With No Paperwork"
+        "Wandering Rando"
       ]);
 
       if (selectedPathIndex === null) {
@@ -620,15 +595,9 @@
       }
 
       const path = paths[selectedPathIndex];
-      const title = randomFrom(titles);
-      const survivalChance = randomNumber(45, 99);
-      const biteRisk = randomNumber(1, 42);
-      const emotionalDamage = randomNumber(12, 97);
-      const dancePower = randomNumber(55, 100);
-      const groupChatReliability = randomNumber(3, 88);
 
       const pickedBadges = [];
-      while (pickedBadges.length < 4) {
+      while (pickedBadges.length < 3) {
         const badge = randomFrom(badges);
         if (!pickedBadges.includes(badge)) {
           pickedBadges.push(badge);
@@ -636,23 +605,21 @@
       }
 
       const rareEvent = Math.random() < 0.12
-        ? `<div class="verdict"><strong>RARE EVENT UNLOCKED:</strong><br>The zombies have accepted you as one of their emotionally complicated leaders.</div>`
+        ? `<div class="profile-text"><strong>RARE EVENT:</strong><br>The zombies have accepted you as one of their emotionally complicated leaders.</div>`
         : "";
 
       document.getElementById("profileResult").style.display = "block";
       document.getElementById("profileResult").innerHTML = `
-        <h3 class="glitch">SURVIVOR PROFILE GENERATED</h3>
+        <h2 class="glitch">PROFILE READY</h2>
 
         ${makeStat("Name", survivorName)}
-        ${makeStat("Title", title)}
+        ${makeStat("Title", randomFrom(titles))}
         ${makeStat("Path", path.name)}
-        ${makeStat("Survival Chance", survivalChance + "%")}
-        ${makeStat("Zombie Bite Risk", biteRisk + "%")}
-        ${makeStat("Dance Power", dancePower + "%")}
-        ${makeStat("Emotional Damage", emotionalDamage + "%")}
-        ${makeStat("Group Chat Reliability", groupChatReliability + "%")}
+        ${makeStat("Survival Chance", randomNumber(45, 99) + "%")}
+        ${makeStat("Zombie Bite Risk", randomNumber(1, 42) + "%")}
+        ${makeStat("Dance Power", randomNumber(55, 100) + "%")}
 
-        <div class="verdict">
+        <div class="profile-text">
           <strong>Special Ability:</strong><br>${path.ability}<br><br>
           <strong>Weakness:</strong><br>${path.weakness}<br><br>
           <strong>Starting Item:</strong><br>${path.item}<br><br>
@@ -673,7 +640,7 @@
     }
 
     renderPaths();
-    rerollInstantScan();
+    rerollCover();
   </script>
 </body>
 </html>
