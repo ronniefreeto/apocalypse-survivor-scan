@@ -797,11 +797,13 @@
     }
 
     function randomPath() {
-      selectedPathIndex = randomNumber(0, paths.length - 1);
-      document.querySelectorAll(".path-button").forEach((btn, index) => {
-        btn.classList.toggle("selected", index === selectedPathIndex);
-      });
-    }
+  selectedPathIndex = randomNumber(0, paths.length - 1);
+  document.querySelectorAll(".path-button").forEach((btn, index) => {
+    btn.classList.toggle("selected", index === selectedPathIndex);
+  });
+
+  generateProfile();
+}
 
     function statLine(label, value) {
       return `<div class="stat"><span>${label}</span><span>${value}</span></div>`;
@@ -821,9 +823,9 @@
         "Slime Witness"
       ]);
 
-      if (selectedPathIndex === null) {
-        randomPath();
-      }
+     if (selectedPathIndex === null) {
+  selectedPathIndex = randomNumber(0, paths.length - 1);
+}
 
       const path = paths[selectedPathIndex];
 
