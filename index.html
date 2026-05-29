@@ -837,9 +837,32 @@
         }
       }
 
-      const rareEvent = Math.random() < 0.12
-        ? `<div class="profile-text"><strong>RARE EVENT:</strong><br>The zombies have accepted you as one of their emotionally complicated leaders.</div>`
-        : "";
+      const rareEvents = [
+  "The zombies have accepted you as one of their emotionally complicated leaders.",
+  "You found the emergency bass bunker. It contains one warm water bottle and a suspicious granola bar.",
+  "A feral rave goblin has joined your party. They refuse to explain their powers.",
+  "You unlocked the secret side quest: Find the friend who said they were 'right by the bathrooms.'",
+  "The Queen Mary ghosts have reviewed your vibe and decided you may pass.",
+  "You discovered a working phone charger in the wasteland. This is now your most valuable possession.",
+  "The bass drop briefly reversed the infection. Scientists are concerned.",
+  "A zombie tried to bite you, but got distracted by your outfit.",
+  "You found the last clean porta-potty. This event will be remembered for generations.",
+  "You have been chosen as temporary mayor of the slime zone.",
+  "A stranger gave you a tiny trinket. Your survival rating increased for reasons unknown.",
+  "You discovered the forbidden stage shortcut. It saves six minutes and costs one friendship.",
+  "The apocalypse DJ played your revival song. You are back at 12% health.",
+  "You found your group after saying 'I’m by the big thing' with zero additional details.",
+  "A security guard nodded at you. You are now officially part of the wasteland ecosystem.",
+  "You unlocked legendary status: Still has phone battery after midnight.",
+  "The zombies attempted to chase you, but your walking speed was too confusing.",
+  "You survived a crowd bottleneck without losing your soul.",
+  "You made eye contact with a stranger during the drop. A temporary alliance has formed.",
+  "The scanner detected one remaining brain cell. Protect it at all costs."
+];
+
+const rareEvent = Math.random() < 0.25
+  ? `<div class="profile-text"><strong>RARE EVENT:</strong><br>${randomFrom(rareEvents)}</div>`
+  : "";
 
       document.getElementById("profileCard").innerHTML = `
         <div class="profile-top">
